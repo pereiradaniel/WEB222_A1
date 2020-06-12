@@ -1,3 +1,13 @@
+/*********************************************************************************
+* WEB222 – Assignment 01
+* I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part of
+* this assignment has been copied manually or electronically from any other source (including web sites)
+* or distributed to other students.
+*
+* Name: Daniel Pereira  Student ID:    Date: 12/June/2020
+*
+********************************************************************************/
+
 const underlineTitle = "\n====================\n";
 const doubleSpace = "\n\n";
 
@@ -134,7 +144,7 @@ console.log(temperatureInCelsius + "C is " + conversionFromCelsiusToFahrenheit +
 
 const temperatureInFahrenheit = 33;
 const conversionFromFahrenheitToCelsius = (temperatureInFahrenheit - 32) / 1.8;
-console.log(temperatureInFahrenheit + "F is " + conversionFromFahrenheitToCelsius + "C");
+console.log(temperatureInFahrenheit + "F is " + conversionFromFahrenheitToCelsius + "C" + doubleSpace);
 
 
 /*Task 4: Larger or largest number
@@ -146,6 +156,135 @@ console.log(temperatureInFahrenheit + "F is " + conversionFromFahrenheitToCelsiu
     c) Call these functions twice with different number parameters, and log the output to the web console with descriptive outputs each time(e.g. "The larger number of 5 and 12 is 12.").
 */
 
+// Print title for TASK #4
+console.log("TASK #4 Sample code:" + underlineTitle);
+
+// Declaration:
+function largerNum(num1, num2) {
+    var output = null;
+    num1 > num2 ? output = num1 : output = num2;
+    return output;
+}
+
+// Expression:
+var greaterNum = function(num1, num2) {
+    var output = null;
+    num1 > num2 ? output = num1 : output = num2;
+    return output;
+};
+
+console.log("largerNum function:\n");
+console.log("The larger number between 33 and 11 is: " + largerNum(11, 33));
+console.log("The larger number between 66 and 22 is: " + largerNum(66, 22) + "\n");
+
+console.log("greaterNum function:\n");
+console.log("The larger number between 33 and 11 is: " + greaterNum(11, 33));
+console.log("The larger number between 66 and 22 is: " + greaterNum(22, 66) + "\n");
+
+
+/*
+    Task 5: Evaluator
+    a) Write a function named Evaluator using the declaration approach, the function:
+        - takes unknown number of arguments which are all number scores,
+        - returns true if the average of these number scores is greater than or equal to 25.
+        - Otherwise return false.
+    
+    b) Call this function 3 times with different number parameters, and log the output to the web console with descriptive outputs each time(e.g.“Average grater than or equal to 25: false”);
+*/
+
+// Print title for TASK #5
+console.log("TASK #5 Sample code:" + underlineTitle);
+
+
+var evaluator = function() {
+
+    var numberOfArguments = arguments.length;
+    var sum = 0;
+
+    for (var i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+
+    var average = sum / numberOfArguments;
+
+    var output = false;
+    if (average == 25 || average > 25) {
+        output = true;
+    }
+
+    return output;
+}
+console.log("Nums:  1, 2, 3 -> Average greater than or equal to 25:  " + evaluator(1, 2, 3));
+console.log("Nums:  10, 20, 30, 40  -> Average greater than or equal to 25:  " + evaluator(10, 20, 30, 40));
+console.log("Nums:  100, 200, 300, 400, 500  -> Average greater than or equal to 25:  " + evaluator(100, 200, 300, 400, 500) + doubleSpace);
+
+
+/*
+    Task 6: ShowMultiples
+    a) Write a function called showMultiples using the declaration approach, the function:
+
+    - Takes 2 numeric arguments(num, numMultiples) – assume the user is entering valid(positive) whole numbers
+    - Outputs all of the multiples of the num argument from 1 to numMultiples: for example:
+
+    if num = 5 and numMultiples = 4, the function would output:
+
+        5 x 1 = 5
+        5 x 2 = 10
+        5 x 3 = 15
+        5 x 4 = 20
+
+    b) Call this function 3 times with different number parameters, and log the output to the web console with descriptive outputs each time.
+*/
+
+// Print title for TASK #6
+console.log("TASK #6 Sample code:" + underlineTitle);
+
+function showMultiples(num, numMultiples) {
+    var output = [];
+    var tempNum = 0;
+    for (var i = 1; i <= numMultiples; i++) {
+        console.log(num + " x " + i + " = " + (num * i));
+    }
+    return "Process complete.\n";
+}
+
+console.log("showMultiples(5, 4):\n" + showMultiples(5, 4));
+console.log("showMultiples(10, 3):\n" + showMultiples(10, 3));
+console.log("showMultiples(7, 7):\n" + showMultiples(7, 7) + "\n");
+
+
+/*
+    Task 7: Closure / Self Invoking
+    Use JavaScript Closure / self invoking method to do the following:
+        a) Name the outer function as ‘Increment”.
+        b) Store 100 as a counter in the outer function.
+        c) Increment the counter by 100 in the inner function and return.
+        d) Call “Increment” three times and store the returned value in a variable each time.
+        e) Log the final value in the web console(400 is the final value for the third call).
+*/
+
+// Print title for TASK #7
+console.log("TASK #7 Sample code:" + underlineTitle);
+
+var increment = (function () {
+    var counter = 100;
+    return function () { counter += 100; return counter }
+})();
+
+/*function increment() {
+    var counter = 100;
+
+    function innerFunc() {
+        counter += 100;
+    }
+
+    innerFunc();
+    return innerFunc();
+}
+*/
+console.log("increment(100) will output:  " + increment());
+console.log("increment(200) will output:  " + increment());
+console.log("increment(300) will output:  " + increment() + doubleSpace);
 
 
 
